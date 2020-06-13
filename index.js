@@ -3,7 +3,8 @@ import { render } from 'react-dom';
 
 
 const Saludo = () => {
-  return <p>Hola</p>;
+  const nombre = 'Javier';
+  return <p>Hola { `${nombre}` }</p>;
 }
 const App = () =>{
   return <h1> <Saludo/> </h1>;
