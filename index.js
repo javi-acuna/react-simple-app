@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import { render } from "react-dom";
 
 const nombres = ['Uriel','Javier','Marines','Claudia'];
@@ -34,13 +34,14 @@ const Saludo = () => {
   return <div>{idioma === "en" ? <p>Hello</p> : <p>Hola</p>}</div>;
 };
 
-const App = () => {
+class App extends Component {
+  render(){
   return (
     <>
     <h1><Saludo/></h1>
     <div><Nombres/></div>
-    </>
-  )
+    </>)
+  }
 };
 
 // const Btn = ()=>{
