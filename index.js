@@ -1,6 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { render } from "react-dom";
 
+const Button = () => {
+  const [counter, setCounter] = useState(0);
+  return(
+    <div>
+      <p>Presionado: {counter}</p>
+      <button onClick={()=> setCounter(counter+1)}>click me!</button>
+    </div>
+  )
+}
 const nombres = ["Uriel", "Javier", "Marines", "Claudia"];
 
 // function getNombres(){
@@ -8,12 +17,12 @@ const nombres = ["Uriel", "Javier", "Marines", "Claudia"];
 //   for(var i=0; i<nombres.length;i++){
 //     elementosLista.push(<li>{nombres[i]}</li>);
 //   }
-// //  console.log(elementosLista);
+//   console.log(elementosLista);
 //   return elementosLista;
 // }
 
 const Nombres = () => {
-  //  return <ul>{getNombres()}</ul>
+//  return <ul>{getNombres()}</ul>
   return (
     <ul>
       {nombres.map((nom, index) => (
@@ -33,7 +42,7 @@ const Nombres = () => {
 
 const Saludo = () => {
   const nombre = "Javier";
-  //  return <p><SaludarEnIdiomas idioma='en'/> {`${nombre}`}</p>
+//  return <p><SaludarEnIdiomas idioma='en'/> {`${nombre}`}</p>
   const idioma = "es";
   return <div>{idioma === "en" ? <p>Hello</p> : <p>Hola</p>}</div>;
 };
@@ -55,6 +64,9 @@ class App extends Component {
   render() {
     return (
       <>
+        <div>
+          <Button/>
+        </div>
         <h1>
           <Saludo />
         </h1>
