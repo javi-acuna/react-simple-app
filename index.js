@@ -1,7 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { render } from "react-dom";
 
-const nombres = ['Uriel','Javier','Marines','Claudia'];
+const nombres = ["Uriel", "Javier", "Marines", "Claudia"];
 
 // function getNombres(){
 //   const elementosLista =[];
@@ -13,11 +13,15 @@ const nombres = ['Uriel','Javier','Marines','Claudia'];
 // }
 
 const Nombres = () => {
-//  return <ul>{getNombres()}</ul>
-  return <ul>{
-    nombres.map((nom,index) => <li key={index}>{nom}</li>)
-  }</ul>
-}
+  //  return <ul>{getNombres()}</ul>
+  return (
+    <ul>
+      {nombres.map((nom, index) => (
+        <li key={index}>{nom}</li>
+      ))}
+    </ul>
+  );
+};
 
 // function SaludarEnIdiomas(idioma){
 //   if(idioma === "es"){
@@ -34,15 +38,36 @@ const Saludo = () => {
   return <div>{idioma === "en" ? <p>Hello</p> : <p>Hola</p>}</div>;
 };
 
-class App extends Component {
-  render(){
+// const Saludar = (props) => {
+//   return <p>Hola {props.nombre}</p>
+// }
+
+const Saludar = ({ nombre, idioma = "en" }) => {
+  const saludo = idioma === "es" ? "Hola" : "Hello";
   return (
-    <>
-    <h1><Saludo/></h1>
-    <div><Nombres/></div>
-    </>)
-  }
+    <p>
+      {saludo} {nombre}
+    </p>
+  );
 };
+
+class App extends Component {
+  render() {
+    return (
+      <>
+        <h1>
+          <Saludo />
+        </h1>
+        <div>
+          <Nombres />
+        </div>
+        <div>
+          <Saludar nombre="Javi" idioma="en" />
+        </div>
+      </>
+    );
+  }
+}
 
 // const Btn = ()=>{
 //   return React.createElement("button",{
